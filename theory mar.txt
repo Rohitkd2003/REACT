@@ -1,0 +1,64 @@
+1️⃣ let / const
+🔹 Definition:
+let → variable declare karayla, jyachi value change karta yete
+const → variable declare karayla, jyachi value change nahi karta yet
+🔹 Advantages:
+var peksha block scope aste ({ } madhye limit)
+bugs kami hotat
+clean & secure code
+🔹 Uses:
+let → jithe value change honar ahe
+const → jithe value constant ahe (config, fixed values)
+-----------------------------------------------------------------------
+
+2️⃣ Arrow Functions (=>)
+🔹 Definition:
+Short syntax for function likhnyasathi.
+🔹 Advantages:
+code short & readable
+this keyword automatically handle karto
+callbacks sathi perfect
+🔹 Uses:
+array methods (map, filter)
+React components
+small utility functions
+-----------------------------------------------------------------------------------------------------
+
+3️⃣ Destructuring
+🔹 Definition:
+Object / array madhun values direct variables madhe extract karne.
+🔹 Advantages:
+less code
+clean syntax
+easy access to data
+🔹 Uses:
+API response handle karayla
+props extract (React)
+object values quickly gheyla
+-------------------------------------------------------------------------------------------------------------
+
+4️⃣ Spread / Rest Operator (...)
+🔹 Spread (...) – Definition:
+Array/object copy ya merge karayla use hoto.
+🔹 Rest (...) – Definition:
+Multiple values ekach variable madhe collect karayla.
+🔹 Advantages:
+immutability maintain
+flexible functions
+clean array/object handling
+🔹 Uses:
+array copy
+object merge
+variable arguments
+-----------------------------------------------------------------------------
+
+5️⃣ map() / filter() / reduce()
+🔹 map()
+👉 Array madhlya pratyek element var operation karto ani new array return karto.
+Use: transformation (UI data, calculations)
+🔹 filter()
+👉 Condition true asnare elements filter karto.
+Use: search, remove unwanted data
+🔹 reduce()
+👉 Array la single value madhe convert karto.
+------------------------------------------------------------------------
