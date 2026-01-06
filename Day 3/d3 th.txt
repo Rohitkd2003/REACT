@@ -1,0 +1,190 @@
+1️⃣ interface vs type
+🔹 Definition:
+
+interface → object cha structure define karayla
+
+type → custom type alias banvayla (object, union, primitive, function)
+
+🔹 Key Differences:
+Feature	interface	type
+Object structure	✅ best	✅
+Union (`	`)	❌
+Extend	extends	&
+Re-open (merge)	✅	❌
+🔹 Advantages:
+
+interface → large apps, OOP style
+
+type → flexible, advanced typing
+
+🔹 Uses:
+
+interface → API models, props
+
+type → union types, complex logic
+
+interface User {
+  name: string;
+  age: number;
+}
+
+type Status = "loading" | "success" | "error";
+
+2️⃣ Generics <T>
+🔹 Definition:
+
+Generic mhanje type dynamically pass karne instead of hardcoding.
+
+🔹 Advantages:
+
+reusable code
+
+type safety
+
+avoid any
+
+🔹 Uses:
+
+utility functions
+
+API responses
+
+components (React)
+
+function identity<T>(value: T): T {
+  return value;
+}
+
+identity<string>("Rohit");
+identity<number>(10);
+
+3️⃣ Enums
+🔹 Definition:
+
+Enums mhanje fixed set of values define karne.
+
+🔹 Types:
+
+Numeric enum
+
+String enum (recommended)
+
+🔹 Advantages:
+
+readable code
+
+avoid magic strings
+
+better consistency
+
+🔹 Uses:
+
+user roles
+
+status codes
+
+app states
+
+enum Role {
+  Admin = "ADMIN",
+  User = "USER",
+  Teacher = "TEACHER"
+}
+
+const myRole: Role = Role.Admin;
+
+4️⃣ Utility Types
+🔹 Definition:
+
+TypeScript madhle built-in helpers je existing types modify kartat.
+
+🔹 Common Utility Types:
+✅ Partial<T>
+
+All properties optional
+
+interface User {
+  name: string;
+  age: number;
+}
+
+const u: Partial<User> = { name: "Rohit" };
+
+✅ Required<T>
+
+All properties compulsory
+
+type FullUser = Required<User>;
+
+✅ Pick<T, K>
+
+Specific fields pick karto
+
+type UserName = Pick<User, "name">;
+
+✅ Omit<T, K>
+
+Specific fields remove karto
+
+type UserWithoutAge = Omit<User, "age">;
+
+🔹 Advantages:
+
+less duplicate code
+
+strong typing
+
+clean models
+
+⚙️ Setup Section
+5️⃣ Node & npm Setup
+🔹 What is Node?
+
+JavaScript runtime (browser baher JS run karayla)
+
+🔹 What is npm?
+
+package manager (libraries install karayla)
+
+🔹 Check install:
+node -v
+npm -v
+
+6️⃣ Vite + React + TypeScript Setup
+🔹 Why Vite?
+
+fast build
+
+instant server
+
+modern tooling
+
+🔹 Steps:
+npm create vite@latest my-app
+
+
+Select:
+
+React
+TypeScript
+
+
+Then:
+
+cd my-app
+npm install
+npm run dev
+
+🔹 Folder structure:
+src/
+ ├─ main.tsx
+ ├─ App.tsx
+ ├─ components/
+
+🔹 Advantage:
+
+Type safety
+
+fast development
+
+industry standard stack
