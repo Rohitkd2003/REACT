@@ -4,6 +4,9 @@
 const sum = (arr) => {
   return arr.reduce((a, b) => a + b, 0);
 };
+console.log("Sum:", sum([1, 2, 3, 4]));
+
+
 // TypeScript (Commented out as this is a .js file)
 /*
 const sumTS = (arr: number[]): number => {
@@ -17,6 +20,8 @@ const user = {
   name: "Rohit",
   age: 21
 };
+
+
 // TypeScript (Commented out as this is a .js file)
 /*
 type User = {
@@ -36,6 +41,8 @@ const userTS: User = {
 const greet = (name, age) => {
   return `Hello ${name}`;
 };
+
+
 // TypeScript (Commented out as this is a .js file)
 /*
 const greetTS = (name: string, age?: number): string => {
@@ -50,9 +57,19 @@ const greetTS = (name: string, age?: number): string => {
 const printValue = (val) => {
   console.log(val);
 };
+
+
 /*
 const printValueTS = (val: number | string): void => {
   console.log(val);
 };
 */
+
+// Quick demo when running this file directly
+if (require.main === module) {
+  
+  console.log("User:", user);
+  console.log("Greet:", greet("Rohit"));
+  printValue("Union example");
+}
 

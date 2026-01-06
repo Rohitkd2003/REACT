@@ -21,6 +21,8 @@ const sumTS = (arr: number[]): number => {
 //   name: "Rohit",
 //   age: 21
 // };
+
+
 //TypeScript 
 type User = {
   name: string;
@@ -39,6 +41,8 @@ const userTS: User = {
 // const greet = (name, age) => {
 //   return `Hello ${name}`;
 // };
+
+
 // TypeScript
 
 const greetTS = (name: string, age?: number): string => {
@@ -53,9 +57,20 @@ const greetTS = (name: string, age?: number): string => {
 // const printValue = (val) => {
 //   console.log(val);
 // };
+
+
+
 // TypeScript 
 const printValueTS = (val: number | string): void => {
   console.log(val);
 };
+
+// Quick demo when running this file directly (via ts-node or after tsc build)
+if (require.main === module) {
+  console.log("Sum TS:", sumTS([1, 2, 3, 4]));
+  console.log("User TS:", userTS);
+  console.log("Greet TS:", greetTS("Rohit"));
+  printValueTS("Union example");
+}
 
 
