@@ -1,5 +1,6 @@
+export {};
 
-// Interface
+// Interfaces
 interface User {
   name: string;
   age: number;
@@ -9,110 +10,93 @@ interface Admin extends User {
   role: string;
 }
 
-// Type 
+// Interface usage example
+{
+  const admin: Admin = { name: "Admin One", age: 30, role: "superuser" };
+  console.log("Admin", admin);
+}
 
-type Status = "loading" | "success" | "error";
+// Type
+// Distinct request status union (kept separate from enum below)
+type RequestStatus = "loading" | "success" | "error";
 
-type User = {
-  name: string;
-  age: number;
-};
+// Union usage example
+{
+  const currentRequest: RequestStatus = "success";
+  console.log("Request status", currentRequest);
+}
 
 
-//  Generics (ek example)
-Problem (without generics)
-const printNumber = (value: number): number => value;
 
-Solution (generic)
+
+// Generics
 const printValue = <T>(value: T): T => {
   return value;
 };
 
-printValue<number>(10);
-printValue<string>("Hello");
+console.log("Print number", printValue<number>(10));
+console.log("Print string", printValue<string>("Hello"));
 
+// Enums (rewritten as const objects so they run directly with node)
+const ApiStatus = {
+  Loading: "Loading",
+  Success: "Success",
+  Error: "Error"
+} as const;
+type ApiStatus = (typeof ApiStatus)[keyof typeof ApiStatus];
 
-👉 T म्हणजे placeholder type
-
-
-
-//3️⃣ Enums
-Without enum ❌
-const status = "success"; // typo risk
-
-With enum ✅
-enum Status {
-  Loading,
-  Success,
-  Error
+// Enum usage example
+{
+  const apiStatus: ApiStatus = ApiStatus.Success;
+  console.log("API status", apiStatus);
 }
 
-let apiStatus: Status = Status.Success;
+// String Enum (const object style)
+const Role = {
+  Admin: "ADMIN",
+  User: "USER"
+} as const;
+type Role = (typeof Role)[keyof typeof Role];
 
-String enum (React madhe common)
-enum Role {
-  Admin = "ADMIN",
-  User = "USER"
+// String enum usage example
+{
+  const role: Role = Role.Admin;
+  console.log("Role", role);
 }
 
-
-
-//4️⃣ Utility Types (React madhe खूप use)
-Partial
+// Utility Types
 interface User {
   name: string;
   age: number;
 }
 
+// Partial
 const updateUser = (user: Partial<User>) => {
-  console.log(user);
+  console.log("Partial output:", user);
 };
 
-Pick
+// Pick
 type UserName = Pick<User, "name">;
 
-Omit
+// Omit
 type UserWithoutAge = Omit<User, "age">;
 
-Readonly
-const user: Readonly<User> = {
+// Readonly
+const readonlyUser: Readonly<User> = {
   name: "Rohit",
   age: 21
 };
 
-// user.age = 22 ❌ error
+// 🔹 All calls in one place
+const userName: UserName = { name: "Rohit" };
+const userWithoutAge: UserWithoutAge = { name: "Only Name" };
 
+updateUser({ name: "Updated Rohit" });
+updateUser({ age: 22 });
 
-//5️⃣ Install Node & npm
+console.log("Pick output:", userName);
+console.log("Omit output:", userWithoutAge);
+console.log("Readonly output:", readonlyUser);
 
-Google → nodejs.org
-
-Download LTS version
-
-Install → Next Next Finish
-
-Check:
-
-node -v
-npm -v
-
-6️⃣ Vite + React + TypeScript Setup
-npm create vite@latest my-app
-
-
-Options:
-
-Framework → React
-
-Variant → TypeScript
-
-Then:
-
-cd my-app
-npm install
-npm run dev
-
-
-Browser open:
-
-http://localhost:5173
+// ❌ error (Readonly)
+// readonlyUser.age = 23;
